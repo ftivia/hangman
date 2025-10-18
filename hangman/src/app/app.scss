@@ -1,0 +1,25 @@
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  box-sizing: border-box;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  height: 60dvh;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+@media (max-width: 768px) {
+  .box {
+    width: 100%;
+    border-radius: 0;
+  }
+}

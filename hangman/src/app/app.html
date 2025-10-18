@@ -1,11 +1,19 @@
-{{ title() }}
+<div class="page">
+  <div class="box">
 
-<div class="toolbar">
-  <button (click)="next()" [disabled]="!canNext">Next</button>
-  <button (click)="reset()">Reset</button>
+    @switch (page()) {
+      @case ('game') {
+        <app-game (navigate)="goTo('instructions')" />
+      }
+
+      @case ('instructions') {
+        <app-instructions (navigate)="goTo('start')" />
+      }
+
+      @case ('start') {
+        <app-start (navigate)="goTo('game')" />
+      }
+    }
+
+  </div>
 </div>
-
-<app-svg
-  [next]="nextStep()"
-  [reset]="resetTick()"
-/>

@@ -1,0 +1,14 @@
+<div class="game">
+    <div class="header pointer" (click)="goToInstructions()">
+        Instructions
+    </div>
+
+    <app-svg [next]="nextStep()" [reset]="resetStep()" />
+
+    @defer {
+    <div class="footer">
+        <button (click)="next()" [disabled]="!(svg?.canNext?.())">Next</button>
+        <button (click)="reset()">Reset</button>
+    </div>
+    }
+</div>
