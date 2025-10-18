@@ -1,0 +1,9 @@
+<svg viewBox="0 0 10 12">
+  @for (step of visibleSteps(); track $index) {
+    @if (step.type === 'path') {
+      <path [attr.d]="step.d" />
+    } @else if (step.type === 'circle') {
+      <circle [attr.cx]="step.cx" [attr.cy]="step.cy" [attr.r]="step.r" />
+    }
+  }
+</svg>
