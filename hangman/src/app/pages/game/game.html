@@ -3,12 +3,22 @@
         Instructions
     </div>
 
-    <app-svg [next]="nextStep()" [reset]="resetStep()" />
+    <div class="content">
+        <div class="svg">
+            <app-svg [next]="nextStep()" [reset]="resetStep()" />
+        </div>
 
-    @defer {
-    <div class="footer">
-        <button (click)="next()" [disabled]="!(svg?.canNext?.())">Next</button>
-        <button (click)="reset()">Reset</button>
+        <div class="words">
+            <div class="title">The Hangman</div>
+            <div class="response"></div>
+            <app-word></app-word>    
+            <div class="text">Play with a word</div>
+            <app-letters></app-letters>    
+            <div class="footer">
+                <button (click)="endGame()">End game</button>
+                <button (click)="startGame()">Start new game</button>
+            </div>
+        </div>
+
     </div>
-    }
 </div>

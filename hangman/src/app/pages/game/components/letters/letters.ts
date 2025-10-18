@@ -1,4 +1,5 @@
-import { Component, output, signal } from '@angular/core';
+import { Component, effect, inject, input, output, signal } from '@angular/core';
+import { GameService } from '../../game.service';
 
 @Component({
   selector: 'app-letters',
@@ -7,17 +8,15 @@ import { Component, output, signal } from '@angular/core';
   styleUrl: './letters.scss'
 })
 export class Letters {
-  readonly letters = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-  readonly chosen = signal<Set<string>>(new Set());
-  readonly selected = output<string>();
+  readonly gameService = inject(GameService);
 
   choose(letter: string) {
-    if (this.chosen().has(letter)) return;
-    this.chosen.update(s => new Set([...s, letter]));
-    this.selected.emit(letter);
+    if (this.gameService.isChosen(letter)) return;
+    this.gameService.chooseLetter(letter);
   }
 
   isChoosed(letter: string) {
-    return this.chosen().has(letter);
+    return this.gameService.chosen().has(letter);
   }
+
 }

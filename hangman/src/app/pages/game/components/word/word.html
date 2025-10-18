@@ -1,0 +1,8 @@
+<div class="word">
+  @for (letter of game.wordLetters(); track $index) {
+    <div class="cell">
+      {{ game.isChosen(letter) ? letter : '' }}
+    </div>
+  }
+</div>
+

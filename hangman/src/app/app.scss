@@ -11,15 +11,16 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 50%;
-  height: 60dvh;
+  min-width: 420px; 
+  width: 500px;
+  aspect-ratio: 1 / 1;
   background-color: white;
   border-radius: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 550px) {
   .box {
-    width: 100%;
-    border-radius: 0;
+    width: 90%;
+    border-radius: 0.5rem;
   }
 }

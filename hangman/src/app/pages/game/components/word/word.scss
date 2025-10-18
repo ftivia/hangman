@@ -1,0 +1,11 @@
+.word {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.cell {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #333;
+  box-sizing: border-box;
+}
