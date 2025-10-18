@@ -1,0 +1,10 @@
+<div class="letters">
+  @for (letter of letters; track letter) {
+    <button 
+      class="letter" 
+      [disabled]="isChoosed(letter)" 
+      (click)="choose(letter)">
+      {{ letter }}
+    </button>
+  }
+</div>
