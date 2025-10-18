@@ -3,7 +3,7 @@
 
     @switch (page()) {
       @case ('game') {
-        <app-game [start]="start()" (navigate)="goTo('instructions')" />
+        <app-game [start]="start()" (navigate)="goTo($event)" />
       }
 
       @case ('instructions') {

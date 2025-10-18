@@ -1,23 +1,21 @@
-
 <div class="page">
-    <h1 class="title">The Hangman</h1>
+  <h1 class="title">The Hangman</h1>
 
-    <h2 class="subtitle">Let's play Hangman!</h2>
+  <h2 class="subtitle">Let's play Hangman!</h2>
 
-    <p class="text">
-        How many letters do you want in your word?
-    </p>
+  <p class="text">
+    How many letters do you want in your word?
+  </p>
 
   <div class="numbers">
-    <button class="num">3</button>
-    <button class="num">4</button>
-    <button class="num">5</button>
-    <button class="num">7</button>
-    <button class="num">8</button>
-    <button class="num">9</button>
-
-     <button class="num">random</button>
+    @for (len of availableLengths(); track len) {
+    <button class="num pointer" [class.active]="isActive(len)" (click)="select(len)">
+      {{ len }}
+    </button>
+    }
   </div>
 
-    <button class="pointer" (click)="goToGame()">Lets Play!</button>
+  <button class="random pointer" (click)="random()">Random</button>
+
+  <button class="play pointer" (click)="goToGame()">Lets Play!</button>
 </div>

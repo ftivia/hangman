@@ -14,7 +14,7 @@ export class Game {
   readonly start = input<boolean>(false);
   readonly nextStep = signal(0);
   readonly resetStep = signal(0);
-  readonly navigate = output<void>();
+  readonly navigate = output<'instructions' | 'start'>();
 
   readonly gameService = inject(GameService);
 
@@ -23,7 +23,7 @@ export class Game {
   constructor() {
     effect(() => {
       if (this.start()) {
-        this.startGame();
+        this.resetSvg();
       }
     });
     effect(() => {
@@ -34,7 +34,7 @@ export class Game {
   }
 
   startGame() {
-    this.resetSvg();
+    this.goToStart();
   }
 
   endGame() {
@@ -53,6 +53,10 @@ export class Game {
   }
 
   goToInstructions() {
-    this.navigate.emit();
+    this.navigate.emit('instructions');
+  }
+
+  goToStart() {
+    this.navigate.emit('start');
   }
 }
